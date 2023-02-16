@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue Mastery</title>
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="nav-bar"></div>
+
+    <div class="product-display">
+      <div class="product-container">
+        <div class="product-image">
+          <img :src="image">
+        </div>
+        <div class="product-info">
+          <h1>{{ product }}</h1>
+          <p v-if="inStock > 10">In Stock</p>
+          <p v-else>Out of Stock</p>
+
+          <ul>
+            <li v-for="detail in details">{{ detail }}</li>
+          </ul>
+          <div v-for="vatiant in vatiants" :key="vatiant.id">{{ vatiant.color }}</div>
+
+
+
+          <br>
+
+          <ul>
+            <li style="list-style-type:disc;" v-for="size in Sizes">{{ size }}</li>
+          </ul>
+          <a :href="url" target="_blank">Click on me!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./main.js"></script>
+  <script>
+    const mountedApp = app.mount('#app')
+  </script>
+</body>
+
+</html>
